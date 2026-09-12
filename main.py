@@ -12,6 +12,31 @@ def get_energy_data():
 
 data = get_energy_data()
 
+# Calculate total active power
+
+def calculate_total_active_power(data):
+    total_active_power = (
+        float(data["data"]["W1"]["value"])
+        + float(data["data"]["W2"]["value"])
+        + float(data["data"]["W3"]["value"])
+    )
+    return total_active_power
+
+# Calculate total reverse active power
+
+def calculate_total_reverse_power(data):
+    total_reverse_power = (
+        float(data["data"]["rW1"]["value"])
+        + float(data["data"]["rW2"]["value"])
+        + float(data["data"]["rW3"]["value"])
+    )
+    return total_reverse_power
+
+data = get_energy_data()
+
+total_active_power = calculate_total_active_power(data)
+total_reverse_power = calculate_total_reverse_power(data)
+
 # Device information
 device_id = data["devid"]
 timestamp = data["time"]
@@ -120,6 +145,8 @@ print(f"Total Active Power: {total_active_power} W")
 print(f"Total Reverse Power: {total_reverse_power} W")
 print(f"Total Energy: {total_energy} kWh")
 print(f"Total Reverse Energy: {total_reverse_energy} kWh")
+print(f"Total Active Power: {total_active_power} W")
+print(f"Total Reverse Power: {total_reverse_power} W")
 
 print(data)
 
