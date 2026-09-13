@@ -1,3 +1,13 @@
 .venv/
 __pycache__/
 .env
+
+
+# git init
+# git status
+# git add .
+# git commit -m "Initial commit"
+# Create a new repository on GitHub
+# git remote add origin https://github.com/USERNAME/essdrive-energy-platform.git
+# git remote -v
+
